@@ -1,8 +1,10 @@
+
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
 import { ActivatedRoute } from "@angular/router";
 import { DatePipe } from '@angular/common';
 import { FilterPipe } from '../filter.pipe';
+import * as process from 'process';
 
 
 @Component({

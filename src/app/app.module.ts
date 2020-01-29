@@ -8,6 +8,9 @@ import { ResultsComponent } from './results/results.component';
 import { EstimateReadingPipe } from './estimate-reading.pipe';
 import { FilterPipe } from './filter.pipe';
 
+// declare var require: any;
+// require('dotenv').config();
+
 @NgModule({
   declarations: [
     AppComponent,
