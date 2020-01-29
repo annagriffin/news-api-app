@@ -18,6 +18,15 @@ The reading time that accompanies each article listing is roughly estimated base
 
 ![results page](img/Capture.PNG)
 
+
+
+## Resources
+- [Deploying an Angular app to Heroku](https://itnext.io/how-to-deploy-angular-application-to-heroku-1d56e09c5147)
+- [Setting environment variables from `.env` files](https://medium.com/@ferie/how-to-pass-environment-variables-at-building-time-in-an-angular-application-using-env-files-4ae1a80383c)
+- [Understanding environment variables node](https://www.twilio.com/blog/2017/08/working-with-environment-variables-in-node-js.html)
+- [dotenv](https://medium.com/@thejasonfile/using-dotenv-package-to-create-environment-variables-33da4ac4ea8f)
+- [config vars in Heroku](https://devcenter.heroku.com/articles/config-vars)
+
  
 
 
