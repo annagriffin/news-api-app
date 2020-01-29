@@ -9,7 +9,7 @@
     "test": "npm run config && ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "npm start --prod"
+    "heroku-postbuild": "npm run build --prod"
   },
   "private": true,
   "dependencies": {
