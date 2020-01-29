@@ -2,37 +2,52 @@
 <html>
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157264011-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-157264011-1');
+  </script>
+
   <meta charset="utf-8">
 </head>
 
 <body>
   <div class="uk-flex">
-  <ul class="uk-iconnav uk-iconnav-vertical uk-padding">
-    <div class="uk-margin-auto-vertical">
-    <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Keyword; pos: right;"><button id="keyword" (click)="colorSwitch()" class="pink" uk-icon="icon: quote-right"></button></li>
-    <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Category; pos: right;"><button id="category" (click)="colorSwitch()" uk-icon="icon: thumbnails"></button></li>
-    </div>
-</ul>
-  <div class="search-container">
-    <div id="keyword-search">
-      <input class="uk-text-lead search-input" focus (keydown)="onKeyDown($event)" placeholder="search..."
-        autofocus="autofocus" />
-    </div>
-    <div id="category-search" class="hidden">
-      <div class="uk-flex uk-flex-center uk-margin">
-          <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('entertainment')">Entertainment</button>
-          <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('technology')">Technology</button>
-          <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('entertainment')">Entertainment</button>
-          <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('health')">Health</button>
+    <ul class="uk-iconnav uk-iconnav-vertical uk-padding">
+      <div class="uk-margin-auto-vertical">
+        <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Keyword; pos: right;"><button
+            id="keyword" (click)="colorSwitch()" class="pink" uk-icon="icon: quote-right"></button></li>
+        <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Category; pos: right;"><button
+            id="category" (click)="colorSwitch()" uk-icon="icon: thumbnails"></button></li>
       </div>
-      <div class="uk-flex uk-flex-center uk-margin">
-        <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('science')">Science</button>
-        <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('sports')">Sports</button>
-        <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('general')">General</button>
+    </ul>
+    <div class="search-container">
+      <div id="keyword-search">
+        <input class="uk-text-lead search-input" focus (keydown)="onKeyDown($event)" placeholder="search..."
+          autofocus="autofocus" />
+      </div>
+      <div id="category-search" class="hidden">
+        <div class="uk-flex uk-flex-center uk-margin">
+          <button class="uk-button uk-button-default uk-margin-right"
+            (click)="getCategory('entertainment')">Entertainment</button>
+          <button class="uk-button uk-button-default uk-margin-right"
+            (click)="getCategory('technology')">Technology</button>
+          <button class="uk-button uk-button-default uk-margin-right"
+            (click)="getCategory('entertainment')">Entertainment</button>
+          <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('health')">Health</button>
+        </div>
+        <div class="uk-flex uk-flex-center uk-margin">
+          <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('science')">Science</button>
+          <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('sports')">Sports</button>
+          <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('general')">General</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </body>
 
 </html>
