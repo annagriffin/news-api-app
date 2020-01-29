@@ -104,6 +104,7 @@ export class ResultsComponent implements OnInit {
       default:
         break;
     }
+    newDate.setHours(0,0,0,0);
     return newDate;
   }
 }

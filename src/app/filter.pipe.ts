@@ -10,6 +10,7 @@ export class FilterPipe implements PipeTransform {
 
     const filteredArticles = articles.filter((article) => {
       const tempDate = new Date(article['publishedAt']);
+      tempDate.setHours(0,0,0,0);
       if (tempDate >= endDate) {
         return article;
 
