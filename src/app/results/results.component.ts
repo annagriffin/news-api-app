@@ -3,7 +3,6 @@ import { SearchService } from '../search.service';
 import { ActivatedRoute } from "@angular/router";
 import { DatePipe } from '@angular/common';
 import { FilterPipe } from '../filter.pipe';
-import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -16,7 +15,7 @@ export class ResultsComponent implements OnInit {
 
   baseUrl = 'https://newsapi.org/v2/';
   params = 'pageSize=50&';
-  apiKey =  'apiKey=' + environment.apiKey;
+  apiKey =  'apiKey=' + process.env.API_KEY;
   query: string;
   results: object;
   searchType: string;
