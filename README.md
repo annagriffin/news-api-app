@@ -14,7 +14,7 @@ The reading time that accompanies each article listing is roughly estimated base
 
 #### Results
 
-![results page](img/capture.png)
+![results page](img/Capture.PNG)
 
  
 
