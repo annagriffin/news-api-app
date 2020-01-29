@@ -10,12 +10,11 @@ The reading time that accompanies each article listing is roughly estimated base
 
 ## Display
 #### Search Types
-<img src='img/search.PNG' width="49%">
-<img src='img/category.PNG' width="49%">
+![search windows](img/display.png)
 
 #### Results
 
-![results page](img/Capture.PNG)
+![results page](img/capture.png)
 
  
 
