@@ -3,16 +3,22 @@
     <ul class="uk-iconnav uk-iconnav-vertical uk-padding">
       <div class="uk-margin-auto-vertical">
         <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Keyword; pos: right;"><button
-            id="keyword" (click)="colorSwitch()" class="pink" uk-icon="icon: quote-right"></button></li>
+            id="keyword" (click)="colorSwitch('keyword')" class="pink" uk-icon="icon: quote-right"></button></li>
         <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Category; pos: right;"><button
-            id="category" (click)="colorSwitch()" uk-icon="icon: thumbnails"></button></li>
+            id="category" (click)="colorSwitch('category')" uk-icon="icon: thumbnails"></button></li>
+        <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Source; pos: right;"><button id="source"
+            (click)="colorSwitch('source')" uk-icon="icon: location"></button></li>
       </div>
     </ul>
     <div class="search-container">
+
+      <!-- search by keyword -->
       <div id="keyword-search">
-        <input class="uk-text-lead search-input" focus (keydown)="onKeyDown($event)" placeholder="search..."
-          autofocus="autofocus" />
+        <input id="search" class="uk-text-lead search-input" focus (keydown)="onKeyDown($event)" placeholder="search..."
+          autofocus="autofocus" autocomplete="off" />
       </div>
+
+      <!-- search by category -->
       <div id="category-search" class="hidden">
         <div class="uk-flex uk-flex-center uk-margin">
           <button class="uk-button uk-button-default uk-margin-right"
@@ -20,13 +26,247 @@
           <button class="uk-button uk-button-default uk-margin-right"
             (click)="getCategory('technology')">Technology</button>
           <button class="uk-button uk-button-default uk-margin-right"
-            (click)="getCategory('entertainment')">Entertainment</button>
+            (click)="getCategory('business')">Business</button>
           <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('health')">Health</button>
         </div>
         <div class="uk-flex uk-flex-center uk-margin">
           <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('science')">Science</button>
           <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('sports')">Sports</button>
           <button class="uk-button uk-button-default uk-margin-right" (click)="getCategory('general')">General</button>
+        </div>
+      </div>
+
+      <!-- search by source -->
+      <div id="source-search" class="uk-padding-large hidden">
+        <div class="uk-flex uk-flex-center uk-margin uk-flex-wrap">
+
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('abc-news')">ABC News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('al-jazeera-english')">Al Jazeera English</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('ars-technica')">Ars Technica</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('associated-press')">Associated Press</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('axios')">Axios</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('bleacher-report')">Bleacher Report</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('bloomberg')">Bloomberg</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('breitbart-news')">Breitbart News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('business-insider')">Business Insider</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('buzzfeed')">Buzzfeed</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('cbs-news')">CBS News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('cnbc')">CNBC</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('cnn')">CNN</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('crypto-coins-news')">Crypto Coins News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('engadget')">Engadget</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('entertainment-weekly')">Entertainment Weekly</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('espn')">ESPN</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('espn-cric-info')">ESPN Cric Info</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('fortune')">Fortune</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('fox-news')">Fox News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('fox-sports')">Fox Sports</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('google-news')">Google News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('hacker-news')">Hacker News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('ign')">IGN</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('mashable')">Mashable</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('medical-news-today')">Medical News Today</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('msnbc')">MSNBC</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('mtv-news')">MTV News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('national-geographic')">National Geographic</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('national-review')">National Review</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('nbc-news')">NBC News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('new-scientist')">New Scientist</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('newsweek')">Newsweek</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('new-york-magazine')">New York Magazine</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('next-big-future')">Next Big Future</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('nfl-news')">NFL News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('nhl-news')">NHL News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('politico')">Politico</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('polygon')">Polygon</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('recode')">Recode</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('reddit-r-all')">Reddit /r/all</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('reuters')">Reuters</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('techcrunch')">TechCrunch</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('techradar')">TechRadar</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('the-american-conservative')">The American Conservative</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('the-hill')">The Hill</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('the-huffington-post')">The Huffington Post</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('the-next-web')">The Next Web</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('the-verge')">The Verge</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('the-wall-street-journal')">The Wall Street Journal</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('the-washington-post')">The Washington Post</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('the-washington-times')">The Washington Times</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('time')">Time</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('usa-today')">USA Today</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('vice-news')">Vice News</button>
+          </div>
+          <div class="item">
+            <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom"
+              (click)="getSource('wired')">Wired</button>
+          </div>
+
+
+
         </div>
       </div>
     </div>

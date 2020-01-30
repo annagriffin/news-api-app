@@ -19,7 +19,6 @@ export class ResultsComponent implements OnInit {
   baseUrl = 'https://newsapi.org/v2/';
   params = 'pageSize=50&';
   apiKey = 'apiKey=' + environment.apiKey;
-  // apiKey =  'apiKey=' + process.env.API_KEY;
   query: string;
   results: object;
   searchType: string;
@@ -38,6 +37,7 @@ export class ResultsComponent implements OnInit {
         this.query = params["query"];
         this.searchType = params["type"];
         this.endpoint = params["endpoint"];
+        this.params += 'language=en&';
     });
 
     if (this.searchType == 'category') {
@@ -60,7 +60,6 @@ export class ResultsComponent implements OnInit {
   getSources() {
     let base = 'https://newsapi.org/v2/sources?apiKey=a952fcbd49a34cb08c80b12729935005';
     this.searchService.search(base).subscribe((result) => {
-
       this.sources = result["sources"].filter((source) => {
         if (source["country"] == 'us') {
           return source;

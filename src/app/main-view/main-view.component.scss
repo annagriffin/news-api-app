@@ -35,6 +35,10 @@
   display: none;
 }
 
+.visible {
+  display: flex;
+}
+
 
 .uk-iconnav>div>li>button {
   &:focus {
