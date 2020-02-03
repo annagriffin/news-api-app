@@ -14,23 +14,6 @@
   color: pink;
 }
 
-.search-input {
-  display: flex;
-  border: none;
-  font-size: 60px;
-  padding: 30px auto;
-  caret-color: #666;
-  color: #666;
-
-  &:focus {
-    outline: none;
-  }
-
-  &::placeholder {
-    color: #e5e5e5;
-  }
-}
-
 .hidden {
   display: none;
 }

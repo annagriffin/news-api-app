@@ -5,6 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
+  /**
+   * Filters the articles by the given threshold
+   * @param article list of all the articles
+   * @param endDate date of oldest articles to filter
+   * @returns list of articles that were published since the endDate
+   */
   transform(articles: object[], endDate: Date): any {
     if (!articles) { return [] };
 

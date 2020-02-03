@@ -4,6 +4,9 @@
   margin-left: auto;
 }
 
+.main {
+  margin: 0;
+}
 .card-container {
   display: flex;
   flex: 1;
@@ -15,6 +18,10 @@
   display: inline;
 }
 
+.placeholder-img {
+  filter: blur(2px);
+}
+
 .search {
   transition: transform .2s;
 
@@ -23,8 +30,8 @@
   }
 }
 
-.hidden {
-  overflow: hidden;
+.grey {
+  color: #666;
 }
 
 .icon {
@@ -57,4 +64,20 @@ img {
 
 a {
   color: black;
+}
+
+
+
+.uk-iconnav>div>li>button {
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+.pink {
+  color: pink;
 }

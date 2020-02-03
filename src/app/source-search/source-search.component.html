@@ -1,0 +1,16 @@
+  <div class="uk-flex uk-flex-center uk-margin uk-flex-wrap">
+
+    <div class="item"  *ngFor="let source of sources;">
+      <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom uk-flex uk-flex-middle" 
+      (click)="getSource(source.id)"><img class="uk-margin-small-right logo" src="//logo.clearbit.com/{{source.url}}">{{ source.name }}</button>
+    </div>
+
+
+
+
+
+  </div>
+
+  <div class="uk-text-center uk-position-bottom-center uk-padding-small">
+    <a href="https://clearbit.com">Logos provided by Clearbit</a>
+  </div>

@@ -7,6 +7,10 @@ import { MainViewComponent } from './main-view/main-view.component';
 import { ResultsComponent } from './results/results.component';
 import { EstimateReadingPipe } from './estimate-reading.pipe';
 import { FilterPipe } from './filter.pipe';
+import { KeywordSearchComponent } from './keyword-search/keyword-search.component';
+import { CategorySearchComponent } from './category-search/category-search.component';
+import { SourceSearchComponent } from './source-search/source-search.component';
+import { ReplaceImageDirective } from './replaceimage.directive';
 
 
 @NgModule({
@@ -15,7 +19,11 @@ import { FilterPipe } from './filter.pipe';
     MainViewComponent,
     ResultsComponent,
     EstimateReadingPipe,
-    FilterPipe
+    FilterPipe,
+    KeywordSearchComponent,
+    CategorySearchComponent,
+    SourceSearchComponent,
+    ReplaceImageDirective
   ],
   imports: [
     BrowserModule,

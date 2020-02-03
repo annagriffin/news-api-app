@@ -5,7 +5,6 @@ import { ActivatedRoute } from "@angular/router";
 import { DatePipe } from '@angular/common';
 import { FilterPipe } from '../filter.pipe';
 import { environment } from '../../environments/environment';
-import * as process from 'process';
 
 
 @Component({
@@ -50,25 +49,14 @@ export class ResultsComponent implements OnInit {
       this.filteredArticles = this.articles;
     });
 
-    this.getSources();
-
     this.date = this.getDate();
 
   }
 
-
-  getSources() {
-    let base = 'https://newsapi.org/v2/sources?apiKey=a952fcbd49a34cb08c80b12729935005';
-    this.searchService.search(base).subscribe((result) => {
-      this.sources = result["sources"].filter((source) => {
-        if (source["country"] == 'us') {
-          return source;
-        }
-      });
-    });
-  }
-
-
+  /**
+   * Get the date in a readable format for display purposes
+   * @returns string with the date and time of the search
+   */
   getDate() {
     let currentDate = new Date();
     let formattedDate = this.datePipe.transform(currentDate, 'fullDate');
@@ -76,12 +64,18 @@ export class ResultsComponent implements OnInit {
     return formattedDate + ' ' + formattedTime;
   }
 
+  /**
+   * Filters out articles that were published before selected date
+   */
   filter(timeInterval: string) {
     let endDate = this.getEndDate(timeInterval);
     this.filteredArticles = this.filterPipe.transform(this.articles, endDate);
   }
 
 
+  /**
+   * Get oldest date in user selected range
+   */
   getEndDate(filterStr: string) {
 
     let newDate = new Date();

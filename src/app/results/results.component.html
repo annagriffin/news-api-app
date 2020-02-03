@@ -1,61 +1,87 @@
-<div class="container">
-  <div class="uk-flex uk-flex-right uk-padding-small">
-    <a class="uk-link-muted" routerLink="/main-view"><span class="search" uk-icon="search"></span></a>
-  </div>
-  <h1 class="uk-heading-small uk-text-center uk-padding-small uk-text-light">
-    {{query}}
-  </h1>
-  <div class="uk-article-meta uk-text-center">
-    {{date}}
-  </div>
-
-  <div class="uk-flex  uk-flex-column uk-margin-small-top">
-
-    <ul class="uk-subnav uk-flex-center uk-subnav-pill uk-margin-bottom">
-      <li class="border"><button (click)="filter('all')" class="uk-button uk-button-default">All</button></li>
-      <li class="border"><button (click)="filter('today')" class="uk-button uk-button-default">Today</button></li>
-      <li class="border"><button (click)="filter('three')" class="uk-button uk-button-default">Last 3 Days</button></li>
-      <li class="border"><button (click)="filter('week')" class="uk-button uk-button-default">Last 7 Days</button></li>
-      <li class="border"><button (click)="filter('month')" class="uk-button uk-button-default">Last Month</button></li>
+<div class="main">
+  <div class="uk-flex">
+    <ul class="uk-iconnav uk-iconnav-vertical uk-padding uk-position-fixed uk-height-1-1">
+      <div class="uk-margin-auto-vertical">
+        <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Keyword; pos: right;"><a routerLink="/main-view"><button
+            class="grey" id="keyword" [ngClass]="searchType === 'q' ? 'pink' : ''" uk-icon="icon: quote-right"></button></a></li>
+        <li class="uk-padding-small uk-padding-remove-left"  uk-tooltip="title: Category; pos: right;"><a routerLink="/main-view"><button
+            class="grey" id="category" [ngClass]="searchType === 'category' ? 'pink' : ''" uk-icon="icon: thumbnails"></button></a></li>
+        <li class="uk-padding-small uk-padding-remove-left"  uk-tooltip="title: Source; pos: right;"><a routerLink="/main-view"><button id="source" [ngClass]="searchType === 'source' ? 'pink' : ''"
+            class="grey" uk-icon="icon: location"></button></a></li>
+      </div>
     </ul>
 
-    <ul class="uk-margin-large uk-margin-large-right uk-margin-large-left uk-child-width-1-1 uk-list">
-      <li *ngFor="let article of filteredArticles;">
+    <div id="top" class="container">
 
-        <div class="uk-card uk-card-default uk-margin-medium-top uk-flex">
-          <div
-            class="uk-card-media-left uk-cover-container uk-text-center uk-width-1-3 uk-margin-auto-top uk-margin-auto-bottom">
-            <img src="{{article.urlToImage}}" alt="article thumbnail">
-          </div>
-          <div class="uk-width-expand inline">
-            <div class="uk-card-body">
-              <h3 class="uk-card-title uk-margin-remove"><a href="{{article.url}}" target="_blank">{{article.title}}</a>
-              </h3>
-              <div class="uk-article-meta">
-                {{article.source["name"]}}
+      <h1 class="uk-heading-small uk-text-center uk-margin-large-top uk-padding-small uk-text-light">
+        {{query}}
+      </h1>
+      <div class="uk-article-meta uk-text-center">
+        {{date}}
+      </div>
+
+      <div class="uk-flex  uk-flex-column uk-margin-small-top results-container">
+
+        <ul class="uk-subnav uk-flex-center uk-subnav-pill uk-margin-bottom">
+          <li class="border"><button (click)="filter('all')" class="uk-button uk-button-default">All</button></li>
+          <li class="border"><button (click)="filter('today')" class="uk-button uk-button-default">Today</button></li>
+          <li class="border"><button (click)="filter('three')" class="uk-button uk-button-default">Last 3 Days</button>
+          </li>
+          <li class="border"><button (click)="filter('week')" class="uk-button uk-button-default">Last 7 Days</button>
+          </li>
+          <li class="border"><button (click)="filter('month')" class="uk-button uk-button-default">Last Month</button>
+          </li>
+        </ul>
+
+        <ul class="uk-margin-large uk-margin-large-right uk-margin-large-left uk-child-width-1-1 uk-list">
+          <li *ngFor="let article of filteredArticles;">
+
+            <div class="uk-card uk-card-default uk-margin-medium-top uk-flex">
+              <div
+                class="uk-card-media-left uk-cover-container uk-text-center uk-width-1-3 uk-margin-auto-top uk-margin-auto-bottom">
+                <img src="{{article.urlToImage}}" appReplaceImage alt="article thumbnail">
               </div>
-              <p class="description-text uk-text-small uk-margin-small-bottom uk-margin-small-top">
-                {{article.description}}</p>
-              <div class="uk-flex uk-flex-middle">
-                <div class="uk-flex">
-                  <a href="{{article.url}}" class="uk-button uk-button-text" target="_blank">Read more</a>
-                </div>
-                <div class="uk-margin-small-left icon">
-                  <span uk-icon="icon: clock; ratio: .5"></span>
-                </div>
-                <div class="uk-text-muted uk-flex">
-                  <p class="uk-margin-remove uk-text-small">{{ article.content | estimateReading }}</p>
-                </div>
-                <div class="uk-text-muted float-right">
-                  <p class="uk-margin-remove uk-text-small">{{ article.publishedAt | date: 'mediumDate' }} </p>
-                </div>
+              <div class="uk-width-expand inline">
+                <div class="uk-card-body">
+                  <h3 class="uk-card-title uk-margin-remove"><a href="{{article.url}}"
+                      target="_blank">{{article.title}}</a>
+                  </h3>
+                  <div class="uk-article-meta">
+                    {{article.source["name"]}}
+                  </div>
+                  <p class="description-text uk-text-small uk-margin-small-bottom uk-margin-small-top">
+                    {{article.description}}</p>
+                  <div class="uk-flex uk-flex-middle">
+                    <div class="uk-flex">
+                      <a href="{{article.url}}"  class="uk-button uk-button-text" target="_blank">Read more</a>
+                    </div>
+                    <div class="uk-margin-small-left icon">
+                      <span uk-icon="icon: clock; ratio: .5"></span>
+                    </div>
+                    <div class="uk-text-muted uk-flex">
+                      <p class="uk-margin-remove uk-text-small">{{ article.content | estimateReading }}</p>
+                    </div>
+                    <div class="uk-text-muted float-right">
+                      <p class="uk-margin-remove uk-text-small">{{ article.publishedAt | date: 'mediumDate' }} </p>
+                    </div>
 
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-      </li>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="uk-iconnav uk-iconnav-vertical uk-padding uk-position-right uk-position-fixed uk-height-1-1">
+      <div class="uk-margin-auto-top">
+        <a href="#top" uk-totop uk-scroll></a>
+
+      </div>
     </ul>
+
+    
   </div>
 </div>
