@@ -16,7 +16,7 @@ export class EstimateReadingPipe implements PipeTransform {
         } else {
           charCount = content.length;
         }
-        return this.charsToMins(charCount) + ' mins';
+        return this.charsToMins(charCount) + ' min read';
     } else {
       return 'unknown'
     }

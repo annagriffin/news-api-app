@@ -1,5 +1,8 @@
 <div class="main">
-  <div class="uk-flex">
+
+<div class="grid">
+
+  <aside class="sidebar-left">
     <ul class="uk-iconnav uk-iconnav-vertical uk-padding uk-position-fixed uk-height-1-1">
       <div class="uk-margin-auto-vertical">
         <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Keyword; pos: right;"><a routerLink="/main-view"><button
@@ -10,7 +13,9 @@
             class="grey" uk-icon="icon: location"></button></a></li>
       </div>
     </ul>
+  </aside>
 
+  <article>
     <div id="top" class="container">
 
       <h1 class="uk-heading-small uk-text-center uk-margin-large-top uk-padding-small uk-text-light">
@@ -20,7 +25,7 @@
         {{date}}
       </div>
 
-      <div class="uk-flex  uk-flex-column uk-margin-small-top results-container">
+      <div class="uk-flex uk-flex-column uk-margin-small-top">
 
         <ul class="uk-subnav uk-flex-center uk-subnav-pill uk-margin-bottom">
           <li class="border"><button (click)="filter('all')" class="uk-button uk-button-default">All</button></li>
@@ -43,6 +48,19 @@
               </div>
               <div class="uk-width-expand inline">
                 <div class="uk-card-body">
+                  <div class="uk-flex uk-flex-middle">
+                    <div class="uk-text-muted">
+                      <p class="uk-margin-remove uk-text-small">{{ article.publishedAt | date: 'mediumDate' }} </p>
+                    </div>
+                    <div class="uk-flex uk-flex-row float-right">
+                    <div class="uk-margin-small-left icon reading-time">
+                      <span uk-icon="icon: clock; ratio: .5"></span>
+                    </div>
+                    <div class="uk-text-muted uk-flex">
+                      <p class="uk-margin-remove uk-text-small reading-time">{{ article.content | estimateReading }}</p>
+                    </div>
+                  </div>
+                  </div>
                   <h3 class="uk-card-title uk-margin-remove"><a href="{{article.url}}"
                       target="_blank">{{article.title}}</a>
                   </h3>
@@ -55,15 +73,7 @@
                     <div class="uk-flex">
                       <a href="{{article.url}}"  class="uk-button uk-button-text" target="_blank">Read more</a>
                     </div>
-                    <div class="uk-margin-small-left icon">
-                      <span uk-icon="icon: clock; ratio: .5"></span>
-                    </div>
-                    <div class="uk-text-muted uk-flex">
-                      <p class="uk-margin-remove uk-text-small">{{ article.content | estimateReading }}</p>
-                    </div>
-                    <div class="uk-text-muted float-right">
-                      <p class="uk-margin-remove uk-text-small">{{ article.publishedAt | date: 'mediumDate' }} </p>
-                    </div>
+                    
 
                   </div>
                 </div>
@@ -74,14 +84,18 @@
         </ul>
       </div>
     </div>
+  </article>
 
+  <aside class="sidebar-right">
     <ul class="uk-iconnav uk-iconnav-vertical uk-padding uk-position-right uk-position-fixed uk-height-1-1">
-      <div class="uk-margin-auto-top">
+      <div class="uk-margin-auto-top up-button">
         <a href="#top" uk-totop uk-scroll></a>
 
       </div>
     </ul>
+  </aside>
 
-    
-  </div>
+
+
+</div>
 </div>

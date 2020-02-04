@@ -14,7 +14,7 @@ export class ReplaceImageDirective {
   constructor() { }
 
   updateUrl() {
-    // this.src = 'img/default.jpg';
+    this.src = 'assets/default.jpg';
     this.className = 'placeholder-img';
   }
 }

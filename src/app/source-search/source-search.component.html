@@ -2,7 +2,7 @@
 
     <div class="item"  *ngFor="let source of sources;">
       <button class="uk-button uk-button-default uk-margin-right uk-margin-bottom uk-flex uk-flex-middle" 
-      (click)="getSource(source.id)"><img class="uk-margin-small-right logo" src="//logo.clearbit.com/{{source.url}}">{{ source.name }}</button>
+      (click)="getSource(source.id)"><div class="uk-margin-small-right"><img class="logo" src="//logo.clearbit.com/{{source.url}}" appReplaceImage></div>{{ source.name }}</button>
     </div>
 
 
