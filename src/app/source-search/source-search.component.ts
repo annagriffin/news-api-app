@@ -20,7 +20,7 @@ export class SourceSearchComponent implements OnInit {
   getSource(source: string) {
     let navigationExtras = {
       queryParams: {
-        "type": 'source',
+        "type": 'sources',
         "query": source,
         "endpoint": "top-headlines"
       }
