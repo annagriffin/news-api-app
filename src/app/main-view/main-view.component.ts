@@ -8,7 +8,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MainViewComponent implements OnInit {
 
-searchTypes;
 type;
 
   constructor(private activatedRoute: ActivatedRoute) { }
@@ -18,25 +17,8 @@ type;
       this.type = params['type'];
       
     });
-
-    this.searchTypes = {
-      'keyword': false,
-      'category': true,
-      'source': true
-    }
   }
 
-  /**
-   * Toggle pick color that highlights which search method was chosen
-   */
-  toggle(category: string) {
-    let beforeAll =  {
-      'keyword': true,
-      'category': true,
-      'source': true
-    }
-    beforeAll[category] = false;
-    this.searchTypes = beforeAll;
-  }
+
 
 }
