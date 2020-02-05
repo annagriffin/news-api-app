@@ -3,16 +3,7 @@
 <div class="grid">
 
   <aside class="sidebar-left">
-    <ul class="uk-iconnav uk-iconnav-vertical uk-padding uk-position-fixed uk-height-1-1">
-      <div class="uk-margin-auto-vertical">
-        <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Keyword; pos: right;"><a routerLink="/main-view"><button
-            class="grey" id="keyword" [ngClass]="searchType === 'q' ? 'pink' : ''" uk-icon="icon: quote-right"></button></a></li>
-        <li class="uk-padding-small uk-padding-remove-left"  uk-tooltip="title: Category; pos: right;"><a routerLink="/main-view"><button
-            class="grey" id="category" [ngClass]="searchType === 'category' ? 'pink' : ''" uk-icon="icon: thumbnails"></button></a></li>
-        <li class="uk-padding-small uk-padding-remove-left"  uk-tooltip="title: Source; pos: right;"><a routerLink="/main-view"><button id="source" [ngClass]="searchType === 'source' ? 'pink' : ''"
-            class="grey" uk-icon="icon: location"></button></a></li>
-      </div>
-    </ul>
+    <app-navbar [type]=searchType class="uk-position-fixed vertical-nav"></app-navbar>
   </aside>
 
   <article>

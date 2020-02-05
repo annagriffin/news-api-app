@@ -1,29 +1,30 @@
 <div class="main">
-  <div class="uk-flex">
-    <ul class="uk-iconnav uk-iconnav-vertical uk-padding">
-      <div class="uk-margin-auto-vertical">
-        <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Keyword; pos: right;"><button
-            id="keyword" (click)="toggle('keyword')" [ngClass]="{ 'pink': ! searchTypes['keyword'] }" uk-icon="icon: quote-right"></button></li>
-        <li class="uk-padding-small uk-padding-remove-left" uk-tooltip="title: Category; pos: right;"><button
-            id="category" (click)="toggle('category')" [ngClass]="{ 'pink': ! searchTypes['category'] }" uk-icon="icon: thumbnails"></button></li>
-        <li class="uk-padding-small uk-padding-remove-left" [ngClass]="{ 'pink': ! searchTypes['source'] }" uk-tooltip="title: Source; pos: right;"><button id="source"
-            (click)="toggle('source')" uk-icon="icon: location"></button></li>
-      </div>
-    </ul>
 
-    <div class="search-container">
-      <div id="keyword-search" [ngClass]="{ 'hidden': searchTypes['keyword'] }">
-        <app-keyword-search></app-keyword-search>
-      </div>
-
-      <div id="category-search" class="hidden" [ngClass]="{ 'hidden': searchTypes['category'] }">
-        <app-category-search></app-category-search>
-      </div>
-      <div id="source-search" class="uk-padding-large hidden" [ngClass]="{ 'hidden': searchTypes['source'] }">
-        <app-source-search></app-source-search>
-      </div>
-
-
-    </div>
+  <div class="grid">
+  
+    <aside class="sidebar-left">
+      <app-navbar [type]=type class="uk-position-fixed vertical-nav"></app-navbar>
+    </aside>
+  
+    <article>
+  
+        <div class="search-container">
+          <div *ngIf="type === 'keyword'" id="keyword-search">
+            <app-keyword-search></app-keyword-search>
+          </div>
+    
+          <div *ngIf="type == 'category'" id="category-search">
+            <app-category-search></app-category-search>
+          </div>
+          <div *ngIf="type == 'source'" id="source-search" class="uk-padding-large">
+            <app-source-search></app-source-search>
+          </div>
+    
+    
+        </div>
+    </article>
+  
+  
+  
   </div>
-</div>
+  </div>

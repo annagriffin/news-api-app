@@ -11,6 +11,7 @@ import { KeywordSearchComponent } from './keyword-search/keyword-search.componen
 import { CategorySearchComponent } from './category-search/category-search.component';
 import { SourceSearchComponent } from './source-search/source-search.component';
 import { ReplaceImageDirective } from './replaceimage.directive';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ReplaceImageDirective } from './replaceimage.directive';
     KeywordSearchComponent,
     CategorySearchComponent,
     SourceSearchComponent,
-    ReplaceImageDirective
+    ReplaceImageDirective,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

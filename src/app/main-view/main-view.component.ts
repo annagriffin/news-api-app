@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main-view',
@@ -8,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class MainViewComponent implements OnInit {
 
 searchTypes;
+type;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.type = params['type'];
+      
+    });
+
     this.searchTypes = {
       'keyword': false,
       'category': true,

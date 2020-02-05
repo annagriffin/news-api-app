@@ -22,18 +22,6 @@
   filter: blur(2px);
 }
 
-.search {
-  transition: transform .2s;
-
-  &:hover {
-    transform: scale(1.5);
-  }
-}
-
-.grey {
-  color: #666;
-}
-
 .icon {
   padding: 0 4px;
 }
@@ -84,6 +72,11 @@ a {
   display: grid;
   grid-template-columns: 100px auto 100px;
   grid-gap: 1em;
+}
+
+.vertical-nav {
+  margin-top: 40vh;
+  padding-left: 28px;
 }
 
 .sidebar-left {
