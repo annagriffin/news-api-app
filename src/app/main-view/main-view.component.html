@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="grid">
+    <aside class="sidebar-left">
+      <app-navbar [type]=type class="uk-position-fixed vertical-nav"></app-navbar>
+    </aside>
+    <article>
+        <div class="search-container">
+          <div *ngIf="type === 'keyword'" id="keyword-search">
+            <app-keyword-search></app-keyword-search>
+          </div>
+    
+          <div *ngIf="type == 'category'" id="category-search">
+            <app-category-search></app-category-search>
+          </div>
+          <div *ngIf="type == 'sources'" id="source-search" class="uk-padding-large">
+            <app-source-search></app-source-search>
+          </div>
+        </div>
+    </article>
+  </div>
+  </div>

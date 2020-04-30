@@ -1,0 +1,84 @@
+<div class="main">
+<div class="grid">
+
+  <aside class="sidebar-left">
+    <app-navbar [type]=searchType class="uk-position-fixed vertical-nav"></app-navbar>
+  </aside>
+
+  <article>
+    <div id="top" class="container">
+
+      <h1 class="uk-heading-small uk-text-center uk-margin-large-top uk-padding-small uk-text-light">
+        {{query}}
+      </h1>
+      <div class="uk-article-meta uk-text-center">
+        {{date}}
+      </div>
+
+      <div class="uk-flex uk-flex-column uk-margin-small-top">
+        <ul class="uk-subnav uk-flex-center uk-subnav-pill uk-margin-bottom">
+          <li class="border"><button (click)="filter('all')" class="uk-button uk-button-default">All</button></li>
+          <li class="border"><button (click)="filter('today')" class="uk-button uk-button-default">Today</button></li>
+          <li class="border"><button (click)="filter('three')" class="uk-button uk-button-default">Last 3 Days</button>
+          </li>
+          <li class="border"><button (click)="filter('week')" class="uk-button uk-button-default">Last 7 Days</button>
+          </li>
+          <li class="border"><button (click)="filter('month')" class="uk-button uk-button-default">Last Month</button>
+          </li>
+        </ul>
+
+        <ul class="uk-margin-large uk-margin-large-right uk-margin-large-left uk-child-width-1-1 uk-list">
+          <li *ngFor="let article of filteredArticles;">
+
+            <div class="uk-card uk-card-default uk-margin-medium-top uk-flex">
+              <div
+                class="uk-card-media-left uk-cover-container uk-text-center uk-width-1-3 uk-margin-auto-top uk-margin-auto-bottom">
+                <img src="{{article.urlToImage}}" appReplaceImage alt="article thumbnail">
+              </div>
+              <div class="uk-width-expand inline">
+                <div class="uk-card-body">
+                  <div class="uk-flex uk-flex-middle">
+                    <div class="uk-text-muted">
+                      <p class="uk-margin-remove uk-text-small">{{ article.publishedAt | date: 'mediumDate' }} </p>
+                    </div>
+                    <div class="uk-flex uk-flex-row float-right">
+                    <div class="uk-margin-small-left icon reading-time">
+                      <span uk-icon="icon: clock; ratio: .5"></span>
+                    </div>
+                    <div class="uk-text-muted uk-flex">
+                      <p class="uk-margin-remove reading-time">{{ article.content | estimateReading }}</p>
+                    </div>
+                  </div>
+                  </div>
+                  <h3 class="uk-card-title uk-margin-remove"><a href="{{article.url}}"
+                      target="_blank">{{article.title}}</a>
+                  </h3>
+                  <div class="uk-article-meta">
+                    {{article.source["name"]}}
+                  </div>
+                  <p class="description-text uk-text-small uk-margin-small-bottom uk-margin-small-top">
+                    {{article.description}}</p>
+                  <div class="uk-flex uk-flex-middle">
+                    <div class="uk-flex">
+                      <a href="{{article.url}}"  class="uk-button uk-button-text" target="_blank">Read more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <aside class="sidebar-right">
+    <ul class="uk-iconnav uk-iconnav-vertical uk-padding uk-position-right uk-position-fixed uk-height-1-1">
+      <div class="uk-margin-auto-top up-button">
+        <a href="#top" uk-totop uk-scroll></a>
+      </div>
+    </ul>
+  </aside>
+
+</div>
+</div>
